@@ -1,0 +1,9 @@
+FROM java
+
+LABEL maintainer "misha"
+
+COPY /project/blog-api/target/blog-api-0.0.1.jar /usr/src/myapp/blog-api-0.0.1.jar
+
+WORKDIR /usr/src/myapp/
+
+ENTRYPOINT java -jar blog-api-0.0.1.jar
