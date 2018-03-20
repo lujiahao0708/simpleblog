@@ -1,4 +1,4 @@
-FROM sonamsamdupkhangsar/springboot-docker:latest
+FROM maven:3.5.0-jdk-8-alpine
 
 MAINTAINER lujiahao0708@gmail.com
 
