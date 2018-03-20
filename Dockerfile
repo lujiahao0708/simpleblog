@@ -10,7 +10,7 @@ ADD . /appdata
 
 RUN mvn package -Dmaven.test.skip=true
 
-COPY /appdata/blog-api/target/blog-api-0.0.1.jar /usr/src/myapp/blog-api-0.0.1.jar
+COPY /appdata/simpleblog/blog-api/target/blog-api-0.0.1.jar /usr/src/myapp/blog-api-0.0.1.jar
 
 WORKDIR /usr/src/myapp/
 
