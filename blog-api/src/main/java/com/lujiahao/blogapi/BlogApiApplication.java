@@ -1,12 +1,8 @@
 package com.lujiahao.blogapi;
 
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
-
-@SpringBootApplication
+/**
+ * @author lujiahao
+ * @date 2018-03-20 下午7:29
+ */
 public class BlogApiApplication {
-
-	public static void main(String[] args) {
-		SpringApplication.run(BlogApiApplication.class, args);
-	}
 }
