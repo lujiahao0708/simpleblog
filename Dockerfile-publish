@@ -1,0 +1,9 @@
+FROM java
+
+LABEL maintainer "misha"
+
+COPY /project/target/simpleblog-0.0.1.jar /usr/src/myapp/simpleblog-0.0.1.jar
+
+WORKDIR /usr/src/myapp/
+
+ENTRYPOINT java -jar simpleblog-0.0.1.jar

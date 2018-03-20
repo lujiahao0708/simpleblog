@@ -6,7 +6,7 @@
 	<groupId>com.lujiahao</groupId>
 	<artifactId>simpleblog</artifactId>
 	<version>0.0.1</version>
-	<packaging>pom</packaging>
+	<packaging>jar</packaging>
 
 	<name>simpleblog</name>
 	<description>Demo project for Spring Boot</description>
@@ -17,11 +17,6 @@
 		<version>1.5.9.RELEASE</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-
-	<modules>
-		<module>blog-api</module>
-		<module>blog-core</module>
-	</modules>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -54,14 +49,14 @@
 	</dependencies>
 
     <!--父工程的pom文件中不能写编译插件,不然会报错-->
-	<!--<build>-->
-		<!--<plugins>-->
-			<!--<plugin>-->
-				<!--<groupId>org.springframework.boot</groupId>-->
-				<!--<artifactId>spring-boot-maven-plugin</artifactId>-->
-			<!--</plugin>-->
-		<!--</plugins>-->
-	<!--</build>-->
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+		</plugins>
+	</build>
 
 	<repositories>
 		<repository>

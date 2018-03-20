@@ -1,12 +1,12 @@
-package com.lujiahao.blogapi;
+package com.lujiahao.blog;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class BlogApiApplication {
+public class SimpleBlogApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(BlogApiApplication.class, args);
+		SpringApplication.run(SimpleBlogApplication.class, args);
 	}
 }
