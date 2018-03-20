@@ -1,6 +1,6 @@
 FROM maven:3.5.0-jdk-8-alpine
 
-LABEL maintainer "misha"
+MAINTAINER lujiahao0708@gmail.com
 
 WORKDIR /project
 ADD . /project
