@@ -2,8 +2,6 @@ FROM maven:3.5.0-jdk-8-alpine
 
 MAINTAINER lujiahao0708@gmail.com
 
-RUN yum -y install maven git
-
 RUN mkdir -p /appdata
 
 WORKDIR /appdata
