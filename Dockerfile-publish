@@ -2,10 +2,9 @@ FROM java
 
 MAINTAINER lujiahao0708@gmail.com
 
-RUN ls project
-
 COPY /project/blog-web/target/blog-web-0.0.1.jar /usr/src/myapp/blog-web-0.0.1.jar
+COYP /project/agent    /usr/src/myapp/agent
 
 WORKDIR /usr/src/myapp/
 
-ENTRYPOINT java -jar blog-web-0.0.1.jar
+ENTRYPOINT java -javaagent:/usr/src/myapp/agent/skywalking-agent.jar -jar blog-web-0.0.1.jar
