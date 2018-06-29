@@ -18,6 +18,7 @@
     <modules>
         <module>blog-api</module>
         <module>blog-web</module>
+        <module>blog-core</module>
     </modules>
 
 	<properties>
