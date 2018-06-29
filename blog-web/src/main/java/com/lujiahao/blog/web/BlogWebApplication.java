@@ -1,0 +1,14 @@
+package com.lujiahao.blog.web;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class BlogWebApplication {
+    public BlogWebApplication() {
+    }
+
+    public static void main(String[] args) {
+        SpringApplication.run(BlogWebApplication.class, args);
+    }
+}

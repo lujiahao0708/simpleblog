@@ -2,3 +2,7 @@
 2018-06-29 13:10:57.945 [main] DEBUG c.l.blog.web.BlogWebApplication   - Running with Spring Boot v1.5.9.RELEASE, Spring v4.3.13.RELEASE
 2018-06-29 13:10:57.946 [main] INFO  c.l.blog.web.BlogWebApplication   - The following profiles are active: test
 2018-06-29 13:11:00.327 [main] INFO  c.l.blog.web.BlogWebApplication   - Started BlogWebApplication in 2.894 seconds (JVM running for 4.373)
+2018-06-29 13:35:39.142 [main] INFO  c.l.blog.web.BlogWebApplication   - Starting BlogWebApplication on lujiahaodeMacBook-Pro.local with PID 93220 (/Users/lujiahao/github/simpleblog/blog-web/target/classes started by lujiahao in /Users/lujiahao/github/simpleblog)
+2018-06-29 13:35:39.146 [main] DEBUG c.l.blog.web.BlogWebApplication   - Running with Spring Boot v1.5.9.RELEASE, Spring v4.3.13.RELEASE
+2018-06-29 13:35:39.146 [main] INFO  c.l.blog.web.BlogWebApplication   - The following profiles are active: test
+2018-06-29 13:35:42.481 [main] INFO  c.l.blog.web.BlogWebApplication   - Started BlogWebApplication in 3.818 seconds (JVM running for 4.586)
