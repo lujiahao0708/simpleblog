@@ -2,6 +2,8 @@ FROM java
 
 MAINTAINER lujiahao0708@gmail.com
 
+RUN ls
+
 COPY /project/blog-web/target/blog-web-0.0.1.jar /usr/src/myapp/blog-web-0.0.1.jar
 
 WORKDIR /usr/src/myapp/
