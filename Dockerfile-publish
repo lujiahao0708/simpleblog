@@ -3,7 +3,7 @@ FROM java
 MAINTAINER lujiahao0708@gmail.com
 
 COPY /project/blog-web/target/blog-web-0.0.1.jar /usr/src/myapp/blog-web-0.0.1.jar
-COYP /project/agent    /usr/src/myapp/agent
+COPY /project/agent    /usr/src/myapp/agent
 
 WORKDIR /usr/src/myapp/
 
