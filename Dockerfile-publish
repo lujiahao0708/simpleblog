@@ -2,8 +2,8 @@ FROM java
 
 MAINTAINER lujiahao0708@gmail.com
 
-COPY /project/blog-api/target/blog-api-0.0.1.jar /usr/src/myapp/blog-api-0.0.1.jar
+COPY /project/blog-web/target/blog-web-0.0.1.jar /usr/src/myapp/blog-web-0.0.1.jar
 
 WORKDIR /usr/src/myapp/
 
-ENTRYPOINT java -javaagent:/project/agent/skywalking-agent.jar -jar blog-api-0.0.1.jar
+ENTRYPOINT java -jar blog-web-0.0.1.jar

@@ -1,12 +1,4 @@
-2018-06-28 17:59:51.512 [main] INFO  c.l.blogapi.BlogApiApplication   - Starting BlogApiApplication on lujiahaodeMacBook-Pro.local with PID 51183 (/Users/lujiahao/github/simpleblog/blog-api/target/classes started by lujiahao in /Users/lujiahao/github/simpleblog)
-2018-06-28 17:59:51.513 [main] DEBUG c.l.blogapi.BlogApiApplication   - Running with Spring Boot v1.5.9.RELEASE, Spring v4.3.13.RELEASE
-2018-06-28 17:59:51.513 [main] INFO  c.l.blogapi.BlogApiApplication   - The following profiles are active: test
-2018-06-28 17:59:55.279 [main] INFO  c.l.blogapi.BlogApiApplication   - Started BlogApiApplication in 4.618 seconds (JVM running for 8.672)
-2018-06-28 18:06:14.558 [main] INFO  c.l.blogapi.BlogApiApplication   - Starting BlogApiApplication on lujiahaodeMacBook-Pro.local with PID 52309 (/Users/lujiahao/github/simpleblog/blog-api/target/classes started by lujiahao in /Users/lujiahao/github/simpleblog)
-2018-06-28 18:06:14.558 [main] DEBUG c.l.blogapi.BlogApiApplication   - Running with Spring Boot v1.5.9.RELEASE, Spring v4.3.13.RELEASE
-2018-06-28 18:06:14.558 [main] INFO  c.l.blogapi.BlogApiApplication   - The following profiles are active: test
-2018-06-28 18:06:18.554 [main] INFO  c.l.blogapi.BlogApiApplication   - Started BlogApiApplication in 5.034 seconds (JVM running for 9.71)
-2018-06-28 18:15:24.035 [main] INFO  c.l.blogapi.BlogApiApplication   - Starting BlogApiApplication on lujiahaodeMacBook-Pro.local with PID 53946 (/Users/lujiahao/github/simpleblog/blog-api/target/classes started by lujiahao in /Users/lujiahao/github/simpleblog)
-2018-06-28 18:15:24.035 [main] DEBUG c.l.blogapi.BlogApiApplication   - Running with Spring Boot v1.5.9.RELEASE, Spring v4.3.13.RELEASE
-2018-06-28 18:15:24.035 [main] INFO  c.l.blogapi.BlogApiApplication   - The following profiles are active: test
-2018-06-28 18:15:27.777 [main] INFO  c.l.blogapi.BlogApiApplication   - Started BlogApiApplication in 4.639 seconds (JVM running for 9.055)
+2018-06-29 13:10:57.943 [main] INFO  c.l.blog.web.BlogWebApplication   - Starting BlogWebApplication on lujiahaodeMacBook-Pro.local with PID 88664 (/Users/lujiahao/github/simpleblog/classes/production/blog-web started by lujiahao in /Users/lujiahao/github/simpleblog)
+2018-06-29 13:10:57.945 [main] DEBUG c.l.blog.web.BlogWebApplication   - Running with Spring Boot v1.5.9.RELEASE, Spring v4.3.13.RELEASE
+2018-06-29 13:10:57.946 [main] INFO  c.l.blog.web.BlogWebApplication   - The following profiles are active: test
+2018-06-29 13:11:00.327 [main] INFO  c.l.blog.web.BlogWebApplication   - Started BlogWebApplication in 2.894 seconds (JVM running for 4.373)
