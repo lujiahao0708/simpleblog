@@ -7,4 +7,4 @@ COPY /project/agent    /usr/src/myapp/agent
 
 WORKDIR /usr/src/myapp/
 
-ENTRYPOINT java -javaagent:/usr/src/myapp/agent/skywalking-agent.jar -jar blog-web-0.0.1.jar
+ENTRYPOINT java -javaagent:/opt/agent/skywalking-agent.jar -jar blog-web-0.0.1.jar
