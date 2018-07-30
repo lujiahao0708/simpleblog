@@ -1,1 +1,1 @@
-spring:  profiles:    active: test
+server:  port: 8080  context-path: /spring:  profiles:    active: test  thymeleaf:#    prefix: classpath:/templates/    mode: HTML5    encoding: UTF-8    # 热部署静态文件    cache: false

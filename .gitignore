@@ -27,4 +27,4 @@ nbdist/
 */.DS_Store
 
 /agent/logs/
-/log/
+log/

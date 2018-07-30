@@ -5,11 +5,9 @@ MAINTAINER lujiahao0708@gmail.com
 WORKDIR /project
 ADD . /project
 
-ADD agent.zip /opt/
-
 RUN mvn package -Dmaven.test.skip=true && \
-    unzip /opt/agent.zip -d /opt
+    unzip agent.zip -d /project
 
-ADD agent.config /opt/agent/config/
+ADD agent.config /project/agent/config/
 
 CMD ["mvn"]

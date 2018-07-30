@@ -5,7 +5,7 @@
 
     <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
         <encoder>
-            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} %X{traceId} %X{orderNo} - %msg%n</pattern>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36}:%line %X{traceId} %X{orderNo} - %msg%n</pattern>
         </encoder>
     </appender>
     <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
@@ -15,38 +15,124 @@
             <maxHistory>30</maxHistory>
         </rollingPolicy>
         <encoder>
-            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} %X{traceId} %X{orderNo} - %msg%n</pattern>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36}:%line %X{traceId} %X{orderNo} - %msg%n</pattern>
+        </encoder>
+    </appender>
+    <appender name="ERROR_FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+            <level>ERROR</level>
+        </filter>
+        <file>${LOG_HOME}/err_logFile.log</file>
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+            <level>ERROR</level>
+        </filter>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${LOG_HOME}/err_logFile.%d{yyyy-MM-dd}.log</fileNamePattern>
+            <maxHistory>30</maxHistory>
+        </rollingPolicy>
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36}:%line %X{traceId} %X{orderNo} - %msg%n</pattern>
         </encoder>
     </appender>
 
-    <!--开发环境日志配置-->
-    <springProfile name="dev">
-        <logger name="com.lujiahao.blog" level="debug" addtivity="false">
-            <appender-ref ref="STDOUT"/>
-        </logger>
 
-        <logger name="org.springframework" level="debug" additivity="false">
-            <appender-ref ref="STDOUT" />
-        </logger>
-    </springProfile>
+    <!-- 接口性能日志 -->
+    <appender name="perf4jFile" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <File>${LOG_HOME}/blog-web.perf4j.log</File>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <FileNamePattern>${LOG_HOME}/history/%d{yyyyMM,aux}/blog-web.perf4j.log.%d{yyyyMMdd}</FileNamePattern>
+            <MaxHistory>30</MaxHistory>
+        </rollingPolicy>
+        <encoder>
+            <Pattern>%msg%n</Pattern>
+            <charset>utf-8</charset>
+        </encoder>
+    </appender>
+
+    <!-- mango dao 监控配置-->
+    <appender name="daoPerf4j" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <File>${LOG_HOME}/blog-web.daoPerf4j.log</File>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <FileNamePattern>${LOG_HOME}/history/%d{yyyyMM,aux}/blog-web.daoPerf4j.log.%d{yyyyMMdd}</FileNamePattern>
+            <MaxHistory>30</MaxHistory>
+        </rollingPolicy>
+        <encoder>
+            <Pattern>%msg%n</Pattern>
+            <charset>utf-8</charset>
+        </encoder>
+    </appender>
+
+    <!-- 打印SQL 监控配置-->
+    <appender name="sqlLog" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <File>${LOG_HOME}/sql.log</File>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <!-- rollover daily -->
+            <fileNamePattern>${LOG_HOME}/logs/history/%d{yyyyMM,aux}/sql.log.%d{yyyyMMdd}</fileNamePattern>
+            <maxHistory>365</maxHistory>
+        </rollingPolicy>
+        <encoder>
+            <charset>UTF-8</charset>
+            <pattern>%date [%thread] %-5level %F{16} [%M:%L] - %msg | traceId:%X{traceId}%n</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="CoalescingStatistics" class="org.perf4j.logback.AsyncCoalescingStatisticsAppender">
+        <param name="TimeSlice"  value="60000"/>
+        <appender-ref  ref="perf4jFile"/>
+    </appender>
 
     <!--测试环境日志配置-->
     <springProfile name="test">
-        <logger name="com.lujiahao.blog" level="debug" addtivity="false">
+        <logger name="com.ichinait" level="INFO" addtivity="false">
             <appender-ref ref="FILE"/>
         </logger>
+        <logger name="DaoStatMonitor"  level="info" additivity="false">
+            <appender-ref ref="daoPerf4j" />
+        </logger>
+        <logger name="org.perf4j.TimingLogger"  level="info" additivity="false">
+            <appender-ref ref="CoalescingStatistics" />
+        </logger>
+        <root level="info">
+            <appender-ref ref="STDOUT"/>
+        </root>
     </springProfile>
 
     <springProfile name="pre">
-        <logger name="com.lujiahao.blog" level="debug" addtivity="false">
+        <logger name="com.ichinait" level="INFO" addtivity="false">
             <appender-ref ref="FILE"/>
         </logger>
+        <logger name="DaoStatMonitor"  level="info" additivity="false">
+            <appender-ref ref="daoPerf4j" />
+        </logger>
+        <logger name="org.perf4j.TimingLogger"  level="info" additivity="false">
+            <appender-ref ref="CoalescingStatistics" />
+        </logger>
+        <!-- update 2018-01-03 影响性能，不打印sql -->
+        <logger name="org.jfaster.mango" level="DEBUG" additivity="false">
+            <appender-ref ref="sqlLog" />
+        </logger>
+        <root level="ERROR">
+            <appender-ref ref="ERROR_FILE"/>
+        </root>
     </springProfile>
 
     <!--线上环境日志配置-->
     <springProfile name="online">
-        <logger name="com.lujiahao.blog" level="info" addtivity="false">
+        <logger name="com.ichinait" level="INFO" addtivity="false">
             <appender-ref ref="FILE"/>
         </logger>
+        <logger name="DaoStatMonitor"  level="info" additivity="false">
+            <appender-ref ref="daoPerf4j" />
+        </logger>
+        <logger name="org.perf4j.TimingLogger"  level="info" additivity="false">
+            <appender-ref ref="CoalescingStatistics" />
+        </logger>
+        <!-- update 2018-01-03 影响性能，不打印sql -->
+        <logger name="org.jfaster.mango" level="DEBUG" additivity="false">
+            <appender-ref ref="sqlLog" />
+        </logger>
+        <root level="ERROR">
+            <appender-ref ref="ERROR_FILE"/>
+        </root>
     </springProfile>
 </configuration>
