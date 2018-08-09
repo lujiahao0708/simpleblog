@@ -1,6 +1,6 @@
 package com.lujiahao.blog.controller;
 
-import com.lujiahao.blog.service.UserRepository;
+import com.lujiahao.blog.service.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,7 +15,7 @@ import org.springframework.web.servlet.ModelAndView;
 public class UserController {
 
     @Autowired
-    private UserRepository userRepository;
+    private IUserService userRepository;
 
     @GetMapping
     public ModelAndView userList(Model model) {

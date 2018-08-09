@@ -6,9 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
-//@ComponentScan(value = "com.lujiahao.blog")
 @MapperScan("com.lujiahao.blog.mapper")
-
 public class BlogCoreApplication {
 
     public static void main(String[] args) {
