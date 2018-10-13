@@ -11,4 +11,5 @@ public class Point {
     private Integer step;
     private Integer xPoint;
     private Integer yPoint;
+    private String content;
 }
